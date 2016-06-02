@@ -8,7 +8,7 @@ class Payment < ActiveRecord::Base
   
   def self.year_options
     (Date.today.year..(Date.today.year+10)).to_a
-  
+  end
   
   def process_payment
     customer = Stripe::Customer.create email: email, card: token
@@ -18,5 +18,5 @@ class Payment < ActiveRecord::Base
                           description: 'Premium',
                           currency: 'usd'
   end
-  end
+  
 end
